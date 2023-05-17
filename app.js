@@ -10,6 +10,8 @@ app.get("/", (req, res) => {
     res.send("Welcome to FlexMetrics!")
 });
 
+// app.use("/exercises", exercisesControllers);
+
 app.get("*", (req, res) => {
     res.status(404).send("Page Not Found");
 });
