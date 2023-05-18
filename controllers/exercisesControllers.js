@@ -1,5 +1,6 @@
 const express = require("express");
 const exercises = express.Router();
+const validateExercise = require("../validations/validateExercise")
 
 const {
     getAllExercises,
@@ -34,7 +35,7 @@ exercises.get("/:id", async (req, res) => {
 })
 
 // create
-exercises.post("/", async (req, res) => {
+exercises.post("/", validateExercise, async (req, res) => {
     const { error, newExercise } = await createExercise(req.body);
     if (error) {
         res.sendStatus(500).json({ error: "Server Error" });
@@ -44,7 +45,7 @@ exercises.post("/", async (req, res) => {
 });
 
 // update
-exercises.put("/:id", async (req, res) => {
+exercises.put("/:id", validateExercise, async (req, res) => {
     const { id } = req.params;
     const { error, updatedExercise } = await updateExercise(id, req.body);
     if (error) {
