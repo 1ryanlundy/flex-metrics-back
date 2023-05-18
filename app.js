@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const exercisesControllers = require("./controllers/exercisesControllers")
+const exercisesController = require("./controllers/exercisesControllers");
+const logsController = require("./controllers/logsControllers")
 
 const app = express();
 
@@ -11,7 +12,9 @@ app.get("/", (req, res) => {
     res.send("Welcome to FlexMetrics!")
 });
 
-app.use("/exercises", exercisesControllers);
+app.use("/exercises", exercisesController);
+
+app.use("/logs", logsController);
 
 app.get("*", (req, res) => {
     res.status(404).send("Page Not Found");

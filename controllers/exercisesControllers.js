@@ -1,7 +1,6 @@
 const express = require("express");
 const exercises = express.Router();
 const validateExercise = require("../validations/validateExercise")
-
 const {
     getAllExercises,
     getExercise,
