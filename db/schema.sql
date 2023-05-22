@@ -13,13 +13,13 @@ CREATE TABLE exercises (
 CREATE TABLE logs (
     id SERIAL PRIMARY KEY,
     date DATE NOT NULL,
-    exercise_id INTEGER NOT NULL REFERENCES exercises (id),
+    exercise_name TEXT NOT NULL,
     description TEXT,
     sets_reps TEXT NOT NULL,
-    set1 NUMERIC,
-    set2 NUMERIC,
-    set3 NUMERIC,
-    set4 NUMERIC,
-    set5 NUMERIC,
-    set6 NUMERIC
+    set1 TEXT NULL,
+    set2 TEXT NULL,
+    set3 TEXT NULL,
+    set4 TEXT NULL,
+    set5 TEXT NULL,
+    set6 TEXT NULL
 );
